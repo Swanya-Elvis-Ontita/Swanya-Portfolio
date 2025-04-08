@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Project</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background: url('masomo.jpg') no-repeat center center/cover;
+            color: white;
+            text-align: center;
+        }
+        .container {
+            background: rgba(0, 0, 0, 0.6);
+            padding: 40px;
+            width: 80%;
+            margin: auto;
+            margin-top: 50px;
+            border-radius: 20px;
+        }
+        h1 {
+            font-size: 2.5rem;
+        }
+        p {
+            font-size: 1.2rem;
+        }
+        .btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 1rem;
+            color: white;
+            background: #007BFF;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            margin-right: 10px;
+        }
+        .btn:hover {
+            background: #0056b3;
+        }
+        .popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(0, 0, 0, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            width: 50%;
+            text-align: center;
+        }
+        .popup input, .popup textarea {
+            width: 100%;
+            margin-bottom: 10px;
+            padding: 10px;
+            border-radius: 5px;
+            border: none;
+        }
+        .popup button {
+            background: #007BFF;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .popup button:hover {
+            background: #0056b3;
+        }
+        .close-btn {
+            background: red;
+            padding: 5px 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .hidden {
+            display: none;
+        }
+        .social-icons a {
+            color: white;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+    </style>
+    <script>
+        function toggleForm() {
+            var form = document.getElementById('bookingForm');
+            form.style.display = (form.style.display === 'block') ? 'none' : 'block';
+        }
+        function toggleAbout() {
+            var aboutSection = document.getElementById('aboutMe');
+            aboutSection.classList.toggle('hidden');
+        }
+        function toggleContact() {
+            var contactSection = document.getElementById('contactPopup');
+            contactSection.style.display = (contactSection.style.display === 'block') ? 'none' : 'block';
+        }
+        function toggleCVPopup() {
+            var cvPopup = document.getElementById('cvPopup');
+            cvPopup.style.display = (cvPopup.style.display === 'block') ? 'none' : 'block';
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>Connect With Developer Swanya Elvis Ontita</h1>
+        <p>Explore my projects, book a service, or just say hello! I specialize in front-end and back-end development, ensuring sleek, user-friendly, and functional designs.</p>
+        <p>Want to collaborate? Click the button below to get started!</p>
+        <button class="btn" onclick="toggleForm()">Book a Service</button>
+        <button class="btn" onclick="toggleAbout()">About Me</button>
+        <button class="btn" onclick="toggleContact()">Contact Me</button>
+        <button class="btn" onclick="toggleCVPopup()">Request CV</button>
+    </div>
+
+    <!-- Booking Form Popup -->
+    <div id="bookingForm" class="popup">
+        <button class="close-btn" onclick="toggleForm()">Close</button>
+        <h2>Book a Service</h2>
+        <input type="text" id="name" placeholder="Your Name" required>
+        <input type="email" id="email" placeholder="Your Email" required>
+        <textarea id="service" placeholder="Describe your preferred service" required></textarea>
+        <button onclick="sendEmail()">Submit</button>
+    </div>
+
+    <!-- About Me Section -->
+    <div id="aboutMe" class="container hidden">
+        <h2>About Me</h2>
+        <p>Hello! I'm a passionate developer proficient in HTML, CSS, and Python. My journey in tech started with my undergraduate in BSc. Computer Technology at Jomo Kenyatta University of Agriculture and Technology (JKUAT).<br> I have continued to expand my skills through a variety of 
+            online platforms with an aim of being a leader in the industry. I thrive on creating innovative solutions that enhance user experiences.</p>
+        <p><strong>Current Role:</strong> Stackie Developer at Stackup.dev, building and maintaining full-stack applications, collaborating on features, and managing code with Git.</p>
+        <p><strong>Innovation:</strong> Co-developing a cutting-edge solution at JHUB Africa, aimed at empowering the African tech space.</p>
+        <p><strong>Cybersecurity Exposure:</strong> Worked with ICT Authority’s Information Security Department, gaining skills in risk assessment, incident response, and cyber threat defense.</p>
+        <p><strong>Technology Blogger:</strong> Currently contributing tech blogs to <a href="https://vumanews.com" target="_blank" style="color: #00BFFF;">vumanews.com</a>, sharing insights and tutorials on current trends in software development and digital innovation.</p>
+        <p><strong>Mentorship & Community:</strong> Founder of the coding club at Craterview Academy, where I mentor CBC learners in foundational programming using Scratch and promote digital literacy from an early age.</p>
+        <p><strong>Technical Skills:</strong> Java, JavaScript, PHP, HTML5, CSS, NodeJS, Reactjs, Django.</p>
+        <p><strong>Certifications:</strong> Cybersecurity & IoT (Cisco), HTML/CSS (SoloLearn), CUDA C/C++ (NVIDIA).</p>
+        <button class="btn" onclick="toggleAbout()">Close</button>
+    </div>
+
+    <!-- Contact Popup -->
+    <div id="contactPopup" class="popup">
+        <button class="close-btn" onclick="toggleContact()">Close</button>
+        <h2>Contact Me</h2>
+        <p>
+            📞 Phone: <a href="tel:+254717470579" style="color: white; text-decoration: none;">+254 717470579</a><br>
+            📧 Email: <a href="mailto:swanyaelvis@gmail.com" style="color: white; text-decoration: none;">swanyaelvis@gmail.com</a>
+        </p>
+        <div class="social-icons">
+            <a href="https://www.facebook.com/PriscilaMathu" target="_blank">Facebook</a> |
+            <a href="https://www.instagram.com/PriscilaMathu" target="_blank">Instagram</a>
+        </div>
+    </div>
+
+    <!-- CV Request Popup -->
+    <div id="cvPopup" class="popup">
+        <button class="close-btn" onclick="toggleCVPopup()">Close</button>
+        <h2>Request My CV</h2>
+        <p>If you'd like to receive my CV, please send a request email to:</p>
+        <p><a href="mailto:swanyaelvis@gmail.com" style="color: #00BFFF; text-decoration: underline;">swanyaelvis@gmail.com</a></p>
+    </div>
+</body>
+</html>
